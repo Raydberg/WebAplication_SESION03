@@ -1,0 +1,45 @@
+﻿@model WebAplication.Models.Contacto
+@{
+    ViewData["Title"] = "Editar Contacto";
+}
+
+<h1>Editar</h1>
+<div class="row">
+    <div class="offset-12">
+        <div class="card-header bg-dark">
+            <h3 class="text-white"><strong>Editar Contacto</strong></h3>
+        </div>
+        <div class="card-body">
+            <form asp-action="Editar">
+                @* ID DEL CONTACTO COMO CAMPO OCULTO*@
+                <input type="hidden" asp-for="Id" />
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class=" form-floating mb-3">
+                    <input asp-for="Nombre" id="name" class="form-control" placeholder="Ingresa Nombre del Contacto" />
+                    <label for="name" asp-for="Nombre" class="control-label"></label>
+                    <span asp-validation-for="Nombre" class="text-danger"></span>
+                </div>
+                <div class="form-floating mb-3 ">
+                    <input asp-for="Telefono" class="form-control" placeholder="Ingresa Nombre del Contacto" />
+                    <label asp-for="Telefono" class="control-label"></label>
+                    <span asp-validation-for="Telefono" class="text-danger"></span>
+                </div>
+                <div class="form-floating mb-3 ">
+                    <input asp-for="Celular" class="form-control" placeholder="Ingresa Nombre del Contacto" />
+                    <label asp-for="Celular" class="control-label"></label>
+                    <span asp-validation-for="Celular" class="text-danger"></span>
+                </div>
+                <div class="form-floating mb-3">
+                    <input asp-for="Email" class="form-control" placeholder="Ingresa Nombre del Contacto" />
+                    <label asp-for="Email" class="control-label"></label>
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="form-group mt-3">
+                    <button class="btn btn-outline-primary d-block mx-auto" type="submit">
+                        <i class="fa fa-user" aria-hidden="true"></i>Editar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
