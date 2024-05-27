@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.CodeAnalysis.Elfie.Serialization;
+using System.ComponentModel.DataAnnotations;
 
 namespace WebAplication.Models
 {
@@ -13,7 +14,11 @@ namespace WebAplication.Models
         public string Celular { get; set; }
         [Required(ErrorMessage = "El mensaje es obligatorio")]
         public string  Email { get; set; }
-
+        public string EstadoCivil { get; set; }
+        [Required(ErrorMessage ="Estado civil obligatorio")]
         public DateTime FechaCreacion { get; set; }
+        [DataType(DataType.Date)]
+        public DateTime  FechaNacimiento { get; set; }
+        
     }
 }

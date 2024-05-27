@@ -12,8 +12,8 @@ using WebAplication.Datos;
 namespace WebAplication.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240522190111_MigracionInicial")]
-    partial class MigracionInicial
+    [Migration("20240527172747_MigracionSecundaria")]
+    partial class MigracionSecundaria
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -40,7 +40,14 @@ namespace WebAplication.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("EstadoCivil")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("FechaCreacion")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("FechaNacimiento")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Nombre")
