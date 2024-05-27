@@ -26,35 +26,31 @@ namespace WebAplication.Controllers
             return View();
         }
 
-
-
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Crear(Contacto contacto, IFormFile foto)
         {
+            // Guardar la foto si se proporciona
+            if (foto != null && foto.Length > 0)
+            {
+                using (var stream = new MemoryStream())
+                {
+                    await foto.CopyToAsync(stream);
+                    contacto.Foto = stream.ToArray();
+                }
+            }
+
             if (ModelState.IsValid)
             {
-                // Guardar la foto si se proporciona
-                if (foto != null && foto.Length > 0)
-                {
-                    using (var stream = new MemoryStream())
-                    {
-                        await foto.CopyToAsync(stream);
-                        contacto.Foto = stream.ToArray();
-                    }
-                }
-
+               
                 // Guardar el contacto en la base de datos
                 contacto.FechaCreacion = DateTime.Now;
                 _contexto.Contacto.Add(contacto);
                 await _contexto.SaveChangesAsync();
-
-                // Redirigir a la acción Index después de guardar el contacto
                 return RedirectToAction(nameof(Index));
             }
 
-            // Si el modelo no es válido, volver a la vista del formulario de creación
+         
             return View();
         }
 
@@ -141,21 +137,7 @@ namespace WebAplication.Controllers
             return View();
         }
 
-        // POST: InicioController/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
+        
         // GET: InicioController/Edit/5
         public ActionResult Edit(int id)
         {
