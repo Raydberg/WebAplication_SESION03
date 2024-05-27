@@ -12,8 +12,8 @@ using WebAplication.Datos;
 namespace WebAplication.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240527172747_MigracionSecundaria")]
-    partial class MigracionSecundaria
+    [Migration("20240527182300_MigracionFinal")]
+    partial class MigracionFinal
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -49,6 +49,10 @@ namespace WebAplication.Migrations
 
                     b.Property<DateTime>("FechaNacimiento")
                         .HasColumnType("datetime2");
+
+                    b.Property<byte[]>("Foto")
+                        .IsRequired()
+                        .HasColumnType("varbinary(max)");
 
                     b.Property<string>("Nombre")
                         .IsRequired()

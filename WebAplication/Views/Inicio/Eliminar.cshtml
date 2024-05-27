@@ -34,13 +34,10 @@
                     <span asp-validation-for="Email" class="text-danger"></span>
                 </div>
                 <div class="mb-3">
-                    <select asp-for="EstadoCivil" class="form-select" readonly aria-label="Small select example">
-                        <option selected>Estado Civil</option>
-                        <option value="Soltero">Soltero</option>
-                        <option value="Casado">Casado</option>
-                        <option value="Viduo">Viduo</option>
-                        <option value="Divorciado">Divorciado</option>
-                    </select>
+                   
+                    <label asp-for="EstadoCivil" class="control-label"></label>
+                    <input  asp-for="EstadoCivil" class="form-control" readonly placeholder="Ingresa Nombre del Contacto" />
+                    <span asp-validation-for="EstadoCivil" class="text-danger"></span>
                 </div>
                 <div class="form-floating mb-3">
                     <input type="date" asp-for="FechaNacimiento" class="form-control" readonly placeholder="Ingresa Nombre del Contacto" />

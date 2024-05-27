@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace WebAplication.Migrations
 {
-    public partial class MigracionSecundaria : Migration
+    public partial class MigracionFinal : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -21,7 +21,8 @@ namespace WebAplication.Migrations
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     EstadoCivil = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     FechaCreacion = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    FechaNacimiento = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    FechaNacimiento = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Foto = table.Column<byte[]>(type: "varbinary(max)", nullable: false)
                 },
                 constraints: table =>
                 {

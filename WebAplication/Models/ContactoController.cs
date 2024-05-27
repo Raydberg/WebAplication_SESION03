@@ -19,6 +19,6 @@ namespace WebAplication.Models
         public DateTime FechaCreacion { get; set; }
         [DataType(DataType.Date)]
         public DateTime  FechaNacimiento { get; set; }
-        
+         public byte[] Foto { get; set; }
     }
 }
