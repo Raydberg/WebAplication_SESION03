@@ -28,32 +28,27 @@ namespace WebAplication.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Crear(Contacto contacto, IFormFile foto)
+        public async Task<IActionResult> Crear(Contacto contacto)
         {
-            // Guardar la foto si se proporciona
-            if (foto != null && foto.Length > 0)
+            if (contacto.FotoArchivo != null && contacto.FotoArchivo.Length > 0)
             {
                 using (var stream = new MemoryStream())
                 {
-                    await foto.CopyToAsync(stream);
+                    await contacto.FotoArchivo.CopyToAsync(stream);
                     contacto.Foto = stream.ToArray();
                 }
             }
 
             if (ModelState.IsValid)
             {
-               
-                // Guardar el contacto en la base de datos
                 contacto.FechaCreacion = DateTime.Now;
                 _contexto.Contacto.Add(contacto);
                 await _contexto.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
 
-         
-            return View();
+            return View(contacto);
         }
-
 
         [HttpGet]
         public IActionResult Editar(int id)

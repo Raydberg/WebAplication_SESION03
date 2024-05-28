@@ -1,5 +1,6 @@
 ﻿using Microsoft.CodeAnalysis.Elfie.Serialization;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace WebAplication.Models
 {
@@ -20,5 +21,7 @@ namespace WebAplication.Models
         [DataType(DataType.Date)]
         public DateTime  FechaNacimiento { get; set; }
          public byte[] Foto { get; set; }
+        [NotMapped]
+        public IFormFile FotoArchivo { get; set; }
     }
 }
