@@ -11,7 +11,7 @@ namespace WebAplication.Controllers
         private readonly ApplicationDbContext _contexto;
 
 
-        public InicioController(ApplicationDbContext contexto)
+        public InicioController(ApplicationDbContext contexto) 
         {
             _contexto = contexto;
         }
