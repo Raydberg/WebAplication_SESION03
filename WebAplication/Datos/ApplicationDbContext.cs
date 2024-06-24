@@ -9,6 +9,6 @@ namespace WebAplication.Datos
         {
         }
         public DbSet<Contacto> Contacto { get; set; }
-        public Dbset<User> Users { get; set; }
+       
     }
 }
