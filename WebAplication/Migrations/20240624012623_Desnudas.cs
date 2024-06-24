@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace WebAplication.Migrations
 {
-    public partial class Migracion1 : Migration
+    public partial class Desnudas : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
