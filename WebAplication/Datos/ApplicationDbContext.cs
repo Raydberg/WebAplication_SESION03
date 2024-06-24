@@ -9,5 +9,9 @@ namespace WebAplication.Datos
         {
         }
         public DbSet<Contacto> Contacto { get; set; }
+<<<<<<< HEAD
+=======
+       
+>>>>>>> 3d36b5b0a731da8d000d621163790cc2c3e72395
     }
 }
